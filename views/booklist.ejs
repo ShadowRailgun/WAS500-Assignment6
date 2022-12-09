@@ -1,0 +1,19 @@
+<% Books.forEach(s=>
+    { %>
+    <div class="books">
+        <table>
+            <tr>
+                <td>
+                    <a href="./books/<%= s.page %>"><img src="<%= s.img %>" alt="<%= s.name %>" id="thumbnail"></a>
+                </td>
+                <td>
+                    <a href="./books/<%= s.page %>">
+                        <h2>
+                            <%= s.name %>
+                        </h2>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <% }); %>

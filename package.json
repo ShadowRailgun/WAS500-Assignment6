@@ -1,0 +1,20 @@
+{
+  "name": "assignment-4",
+  "version": "1.0.0",
+  "description": "My name is Corinna Chang\r This is my git repository for assignment 4 for the class WAS500\r The git repository will include all required files barring the javascript modules folder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "http-status-codes": "^2.2.0",
+    "mongoose": "^6.7.3"
+  }
+}

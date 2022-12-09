@@ -1,0 +1,114 @@
+html {
+    box-sizing: border-box;
+    background: lightslategray;
+    height: 100%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+  
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.index > * {
+    padding: 20px;
+}
+
+.index {
+    background: lightslategrey;
+    font-family: helvetica, arial, sans-serif;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    height: 100%;
+}
+
+
+#navigation{
+    grid-column-start: 1;
+    grid-row: 1 / 6;
+    background-color: black;
+    border-right: solid lightslategray 5px;
+}
+
+/* start of books.html styling */
+.books{
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+#thumbnail{
+    width: 50%;
+    height: 50%;
+    border: solid black 6px;
+}
+table{
+    padding: 0%;
+}
+.bookimg{
+    grid-column: 2 / 4;
+}
+#fullsize{
+    margin-right: 10px;
+}
+/* end of books.html styling */
+
+/* start of contact.html styling */
+.map{
+    grid-column: 2 / 4;
+}
+/* end of contact.html styling */
+
+.warning{
+    color: red; 
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+}
+header{
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+h1{
+    color: darkblue;
+    margin: 0;
+    font-size: 60px;
+    text-align: center;
+    grid-column: 2 / 4;
+}
+
+footer{
+    grid-column: 2 / 4; 
+    background-color: black;
+    border: solid yellow 8px;
+}
+
+button{
+    color:darkblue;
+    background-color: lightgray;
+    border: solid black 5px;
+    size: 20px;
+    height: 40px;
+    width: 100%;
+    cursor: pointer;
+    font-size: large;
+    font-style: oblique;
+    margin-top: 4mm;
+    font: bold;
+    text-align: center;
+}
+
+button:hover{
+    background: gray;
+}
+
+a{
+    color: black;
+}
+a:hover{
+    color: darkblue;
+}
