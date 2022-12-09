@@ -26,9 +26,11 @@ module.exports = {
     });
   },
   getbooks: (req, res, next) => {
-    let paramsName = req.params.bookID;
-    console.log(req.params)
-    Books.findOne({page: paramsName}, (error, book) => {
+    let params_book_id = req.params.bookID;
+    //let paramsName = req.params.bookID;
+    console.log(req.params.id)
+    //Books.findOne({page: paramsName}, (error, book) => {
+    Books.findById({_id: params_book_id}, (error, book) => {
         if (error) next(error);
         console.log(book)
         req.data = book;

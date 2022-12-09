@@ -5,6 +5,7 @@ const express = require("express"),
   layouts = require("express-ejs-layouts");
 const booksController = require("./controllers/booksController");
 const mongoose = require("mongoose")
+const methodOverride = require("method-override")
 require("dotenv").config()
 const uri = process.env.ATLAS_URI;
 //console.log(uri)
@@ -16,7 +17,11 @@ const db = mongoose.connection;
 
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
-
+app.use(
+  methodOverride("_method", {
+    methods: ["POST", "GET"]
+  })
+);
 app.use(express.static("public"));
 app.use(layouts);
 app.use(
@@ -30,6 +35,7 @@ app.use(homeController.logRequestPaths);
 app.get("/home", homeController.home);
 app.get("/", homeController.home);
 app.get("/books/:bookID", booksController.getbooks, (req, res) =>{
+  console.log(req.data)
   res.render("bookpage", {s: req.data})
 });
 app.get("/honesty", homeController.honesty);
@@ -43,7 +49,7 @@ app.post("/", (req, res) => {
 app.get(
   "/booklist", booksController.getAllBooks, (req, res) =>{
     console.log(req.data);
-    res.render("booklist", {Books: req.data})
+    res.render("booklist", {Books: req.data});
   }
 );
 
