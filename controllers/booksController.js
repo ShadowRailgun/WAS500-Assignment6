@@ -15,21 +15,43 @@ module.exports = {
   saveBooks: (req, res) => {
     let newBooks = new Books({
       name: req.body.name,
-      page: req.body.page,
-      description: req.body.description,
-      img: req.body.img,
+      author: req.body.author
     });
     newBooks.save((error, result) => {
       if (error) res.send(error);
       console.log("Success")
+      res.locals.redirect = "/admin"
       next();
+    });
+  },
+  updateBook: (req, res) => {
+    let params_book_id = req.params.bookID;
+    console.log(req.params.id)
+    Books.findByIdAndUpdate(params_book_id, {
+      name: req.body.name,
+      author: req.body.author
+    },(error, book) => {
+        if (error) next(error);
+        console.log(book)
+        req.data = book;
+        res.locals.redirect = "/admin"
+        next();
+    });
+  },
+  delBook: (req, res,next) => {
+    let params_book_id = req.params.bookID;
+    console.log(req.params.id)
+    Books.findByIdAndDelete({_id:params_book_id}, (error, book) => {
+        if (error) next(error);
+        console.log(book)
+        req.data = book;
+        res.locals.redirect = "/admin"
+        next();
     });
   },
   getbooks: (req, res, next) => {
     let params_book_id = req.params.bookID;
-    //let paramsName = req.params.bookID;
     console.log(req.params.id)
-    //Books.findOne({page: paramsName}, (error, book) => {
     Books.findById({_id: params_book_id}, (error, book) => {
         if (error) next(error);
         console.log(book)
