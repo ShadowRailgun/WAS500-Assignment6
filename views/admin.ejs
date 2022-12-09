@@ -12,12 +12,18 @@
         <% Books.forEach(s=>
             { %>
             <tr>
-                <td><%= s.id %></td>
-                <td><%= s.name %></td>
-                <td><%= s.author %></td>
+                <td>
+                    <%= s.id %>
+                </td>
+                <td>
+                    <%= s.name %>
+                </td>
+                <td>
+                    <%= s.author %>
+                </td>
                 <td>Edit</td>
                 <td>Delete</td>
             </tr>
+            <% }); %>
     </table>
 </div>
-<% }); %>

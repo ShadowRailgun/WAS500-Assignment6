@@ -63,6 +63,11 @@ table{
 }
 /* end of contact.html styling */
 
+table.admin{
+    max-width: 100%;
+    table-layout: auto;
+    grid-column: 2/4;
+}
 .warning{
     color: red; 
     background-color: black;
