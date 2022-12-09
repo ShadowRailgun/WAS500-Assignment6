@@ -53,6 +53,13 @@ app.get(
   }
 );
 
+app.get(
+  "/admin", booksController.getAllBooks, (req, res) =>{
+    console.log(req.data);
+    res.render("admin", {Books: req.data});
+  }
+);
+
 app.get("/addbook", booksController.getBookLoadPage)
 app.post("/subscribe", booksController.saveBooks)
 
