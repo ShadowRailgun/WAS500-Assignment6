@@ -10,6 +10,7 @@ module.exports = {
   },
   getBookLoadPage: (req, res) => {
     res.render("loadbook");
+    next();
   },
   saveBooks: (req, res) => {
     let newBooks = new Books({
@@ -21,6 +22,7 @@ module.exports = {
     newBooks.save((error, result) => {
       if (error) res.send(error);
       console.log("Success")
+      next();
     });
   },
   getbooks: (req, res, next) => {
@@ -34,5 +36,10 @@ module.exports = {
       });
     
     //res.render("bookpage");
+  },
+  redirectView: (req, res, next) => {
+    let redirectPath = res.locals.redirect;
+    if (redirectPath) res.redirect(redirectPath);
+    else next();
   },
 }
