@@ -1,0 +1,18 @@
+<div class="bookimg">
+    <table>
+        <td>
+            <img src="<%= s.img %>" alt="<%= s.name %>" id="fullsize"></a>
+        </td>
+        <td style="vertical-align: top">
+            <form action="/books/<%- s.id %>/update" method="POST">
+                <h2>Name: </h2>
+                <input type="text" name="name" required="required" placeholder="<%= s.name %>" />
+                <h4>Author: </h4>
+                <input type="text" name="author" required="required" placeholder="<%= s.author %>" />
+                <p>
+                    <%= s.description %>
+                </p>
+            </form>
+        </td>
+    </table>
+</div>
