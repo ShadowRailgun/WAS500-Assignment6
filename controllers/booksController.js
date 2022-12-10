@@ -8,10 +8,6 @@ module.exports = {
       next();
     });
   },
-  getBookLoadPage: (req, res) => {
-    res.render("loadbook");
-    next();
-  },
   saveBooks: (req, res, next) => {
     let newBooks = new Books({
       name: req.body.name,

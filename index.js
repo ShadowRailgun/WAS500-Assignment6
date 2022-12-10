@@ -60,8 +60,10 @@ app.get(
   }
 );
 
-app.get("/addbook", booksController.getBookLoadPage)
-app.post("/subscribe", booksController.saveBooks)
+app.get("/addnewbook", (req, res) => {
+  res.render('loadbook')
+})
+app.post("/subscribe", booksController.saveBooks, booksController.redirectView)
 
 app.get("/edit/:bookID", booksController.getbooks, (req, res) => {
   res.render('edit', {s: req.data})
