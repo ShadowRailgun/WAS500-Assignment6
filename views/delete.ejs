@@ -1,0 +1,15 @@
+<div class="bookimg" >
+    <table>
+        <td>
+            <img src="<%= s.img %>" alt="<%= s.name %>" id="fullsize"></a>
+        </td>
+        <td style="vertical-align: top">
+            <h2><%= s.name %></h2>
+            <h4><%= s.author %></h4>
+            <p><%= s.description %></p>
+            <form action="/books/<%- s.id %>/delete" method="POST">
+                <button type="submit" onclick="if(confirm('Click again to confirm that you really want to delete the book.')){document.location='/books/<%= s.id %>/delete'}else{return false;};">Delete</button>
+            </form>
+        </td>
+    </table>
+</div>

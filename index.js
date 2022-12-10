@@ -67,6 +67,10 @@ app.get("/edit/:bookID", booksController.getbooks, (req, res) => {
   res.render('edit', {s: req.data})
 })
 app.post("/books/:bookID/update", booksController.updateBook, booksController.redirectView);
+app.get("/delete/:bookID", booksController.getbooks, (req, res) => {
+  res.render('delete', {s: req.data})
+})
+app.post("/books/:bookID/delete", booksController.delBook, booksController.redirectView)
 app.use(errorController.logErrors);
 app.use(errorController.respondNoResourceFound);
 app.use(errorController.typeError);
