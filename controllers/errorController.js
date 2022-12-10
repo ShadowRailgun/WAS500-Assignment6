@@ -24,3 +24,9 @@ exports.typeError = (req, res) => {
   res.status(errorCode);
   res.send(`${errorCode} | The page does not exist!`);
 };
+
+exports.validationError = (req, res) => {
+  let errorCode = httpStatus.StatusCodes.BAD_REQUEST;
+  res.status(errorCode);
+  res.send(`${errorCode} | Not all required information was submitted!`)
+}

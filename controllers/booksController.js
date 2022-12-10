@@ -14,7 +14,7 @@ module.exports = {
       author: req.body.author
     });
     newBooks.save((error, result) => {
-      if (error) res.send(error);
+      if (error) next(error);
       console.log("Success")
       res.locals.redirect = "/admin"
       next();

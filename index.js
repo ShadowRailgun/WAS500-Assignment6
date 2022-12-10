@@ -77,7 +77,7 @@ app.use(errorController.logErrors);
 app.use(errorController.respondNoResourceFound);
 app.use(errorController.typeError);
 app.use(errorController.respondInternalError);
-
+app.use(errorController.validationError);
 app.listen(app.get("port"), () => {
   console.log(`Server running at http://localhost:${app.get("port")}`);
 });
