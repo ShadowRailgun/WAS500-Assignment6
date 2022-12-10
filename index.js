@@ -63,6 +63,10 @@ app.get(
 app.get("/addbook", booksController.getBookLoadPage)
 app.post("/subscribe", booksController.saveBooks)
 
+app.get("/edit/:bookID", booksController.getbooks, (req, res) => {
+  res.render('edit', {s: req.data})
+})
+app.post("/books/:bookID/update", booksController.updateBook, booksController.redirectView);
 app.use(errorController.logErrors);
 app.use(errorController.respondNoResourceFound);
 app.use(errorController.typeError);

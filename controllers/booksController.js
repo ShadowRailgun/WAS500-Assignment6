@@ -12,7 +12,7 @@ module.exports = {
     res.render("loadbook");
     next();
   },
-  saveBooks: (req, res) => {
+  saveBooks: (req, res, next) => {
     let newBooks = new Books({
       name: req.body.name,
       author: req.body.author
@@ -24,7 +24,7 @@ module.exports = {
       next();
     });
   },
-  updateBook: (req, res) => {
+  updateBook: (req, res,next) => {
     let params_book_id = req.params.bookID;
     console.log(req.params.id)
     Books.findByIdAndUpdate(params_book_id, {
